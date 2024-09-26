@@ -1,0 +1,33 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - sts.example.com
+  resources:
+  - mystatefulsets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - sts.example.com
+  resources:
+  - mystatefulsets/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - sts.example.com
+  resources:
+  - mystatefulsets/status
+  verbs:
+  - get
+  - patch
+  - update

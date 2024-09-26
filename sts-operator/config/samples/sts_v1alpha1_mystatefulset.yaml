@@ -1,0 +1,27 @@
+apiVersion: sts.example.com/v1alpha1
+kind: MyStatefulSet
+metadata:
+  labels:
+    app.kubernetes.io/name: mystatefulset
+    app.kubernetes.io/instance: mystatefulset-sample
+    app.kubernetes.io/part-of: sts-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: sts-operator
+  name: mystatefulset-sample
+spec:
+  replicas: 6
+#  selector:
+#    matchLabels:
+#      app: test
+  template:
+#    metadata:
+#      labels:
+#        app: test
+    spec:
+      containers:
+        - image: m.daocloud.io/nginx
+          name: nginx
+          resources: {}
+          imagePullPolicy: IfNotPresent
+
+#   TODO(user): Add fields here

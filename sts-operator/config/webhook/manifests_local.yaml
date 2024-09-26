@@ -1,0 +1,53 @@
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: mutating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+#    service:
+#      name: webhook-service
+#      namespace: system
+#      path: /mutate-sts-example-com-example-com-v1alpha1-mystatefulset
+    url: https://192.168.35.1:9443/mutate-sts-example-com-v1alpha1-mystatefulset
+#    caBundle: "LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVBcGYranNDY0RacFRpNU41SG1zQ3ZkOTAxYlg2ZURPckRFVlBOV0tRdzJxOHFZSlhhCm1QQVJHV0UzZWNTZHc1bnhrY2ZMRUd6V1NhNmpaeHhOUG1vMDFZdW9POWxkTmhWMFBvS3FMaGRTY3g4VnRBa0sKVTh1WHdoY1lPUE1qZ2c2V2t5NDNSTFg4V3hhd1RXaFZEZk9qWTRXenM2Z0JyZ0h0SnVSWnNNSFJqOW5tbjNlTQorb0ZhR0h0UWZ3QWZ2djVCekpEOGhrUzBtcHlxTFpLa09zekMwV0hIeE9Rdmp3M0NBZjhEWnF2VlhlQm4wMHZMCk1VUFNsRng0Z2FObW5FOUZ5aTFJT1hBZjFXZldyWFk5emFHc1JIWFFib2JVbm5UTm5NelFDMTg0MktzelJHVlQKemFIVWs1TE5iWFNhSm5WbDJqdG83eGM2ZzJyOEk4WDRzTmF5V3dJREFRQUJBb0lCQUNoaWNTaEIxWW4zWHR2ZgpWL3hHTkdvczN2cXNlemNaUml2SS80UTVMY21HSkFFcmMrc1JQSmU0Rnc4QXpvRHZ5dDEwaGVxUkQvRU5FNlBhCk50Q2dkZ29kMStmM2tiMitxbkVxeU13OTBFbEJucjRXRlBVZDZ1WEZTSmRTVDZrc2MyV0xNTmIrajA1NXpwcUcKYjJyZGd6cUxKSlRvb3IvNnAvOTJQbnZLSzNtYlhSVFhKZFJEVWdNTVpIRFMxVytaT2IyWGhVTEdxMmRmWEREbApkUVE3aGVNcHBRM0lub3RNeE1kVEI2YW52dmJPUlB1b3RUd0UxbXNLdDdLdHU2UWpxR3UxdnhDTWlmVUU2VEFRCkJvMGdjNGQ3Q1pXUzY3akZOdzhZakI1OVg5NTBVSmZsd1I1YWhUQnFobzU2VTFDMzFaRUZqb21QaGoxdzh5YUsKb0UvOW1JRUNnWUVBdzFGUmJjclZLeGt3ak1KeGV2OGJlOENWOGJpMzZlWmI1TGR6cXFpdTZSZ0I0bzMxV2NBUApleW5ZWGhORmRrdkdUVjBoeWxqdWlyNVlkV3VMTTRCRGY4R0xOU1hKQkdaUmZFS3huUnhYZk5tL3ZKMVZHZytMCnZGV1pBTEZkV2QvWGtUV1huZEJnOFlrTGNkYTVoSzRiRUpXcjB6c3BiYlVvdjRzdldveFU4SU1DZ1lFQTJaSnEKaXVhUSt0OTJVVFJJcXA2Q3EvMlM4OFlKYXNpaDBtNUNWUC91ck9xVUN0d0hLODZPQXJOSi9HTTFlR1lHSWdKVwo4a0VkWGF5aS9SZEt0UklKeGdzN1JUTVFwd2lhVExpM3JUS25qcm8rbWlwazlaWDF5V2ZWdTdiYU5OZmdYV1hyClBPeC9JTWM1eW15MnNCTVZndnRzUktwVGlRaDFtMlptZDdHMDMwa0NnWUJNNktKVnh6NjFIOUFjUFJ5T1FCSEUKWXdzb0NZSngyY0ZwaUV0RmNmS2QybFF6cjQ1aTd0dXB0Y3A3RUwrVFd6Y1VrNDJRcmdBUUplK1RIT3ZOTmI1ZQplZ21rdmVJdmwxS1N5WGhDMHp3bjcxNHVtUTAvbTh0OE40QnQ0MmxNMEhXRHVrU2ZZY1FxbDdvbjgxTk55WGppCnlPekYyay92NFJ2UWdLLyt5YTlRblFLQmdRQ3QySzVGR29KUjB1aHBia3Q1K1hvVUQyT3lZVlQ0L0NOQlQxUzEKTW1MMXkrSks0eERmMGdYcTVuT0J0WXZ1RGlkc1dVNDcrQWVNNS9xOEhEWlhoSGhHeElheGZtSVo5V2ZGVWZ1Qgo2dTJ6ditGeHNkcEYyWE14WVVTSTMweHYyT2F2K2xZQ3NqM0taU1lxTnIrcTVUVFZHaXlpbVM1eVdrNE93NzJ3CmVsQTU4UUtCZ0dLRE0yalluczVNZDRJa3kycVkzVHQxdWI2bmhGVU5mNG94d080cmxtRWtQNHl1aWpMYmRyTTMKeHNjcmZiVWlsSUZobklST3JEdnh3MUMyM3VxenBNRC9MOS9Md2dNS1FUNWZSQXF5MU1xTjkzajRzdWxpSkIyMwovRi9ONndzeFEzalZid3FFekVsYTBYeTlHYk42aUt5dE9YMVZwYnVJWC9VM2NyU01wZnhNCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg=="
+  failurePolicy: Fail
+  name: mmystatefulset.kb.io
+  rules:
+  - apiGroups:
+    - sts.example.com
+    apiVersions:
+    - v1alpha1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - mystatefulsets
+  sideEffects: None
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  creationTimestamp: null
+  name: validating-webhook-configuration
+webhooks:
+  - admissionReviewVersions:
+      - v1
+    clientConfig:
+      url: https://192.168.35.1:9443/validate-sts-example-com-v1alpha1-mystatefulset
+    failurePolicy: Fail
+    name: vmystatefulset.kb.io
+    rules:
+      - apiGroups:
+          - sts.example.com
+        apiVersions:
+          - v1alpha1
+        operations:
+          - CREATE
+          - UPDATE
+        resources:
+          - mystatefulsets
+    sideEffects: None

@@ -10,13 +10,14 @@ webhooks:
   clientConfig:
     service:
       name: webhook-service
-      namespace: system
-      path: /mutate-sts-example-com-example-com-v1alpha1-mystatefulset
+      namespace: {{ .Values.namespace }}
+
+      path: /mutate-sts-example-com-v1alpha1-mystatefulset
   failurePolicy: Fail
   name: mmystatefulset.kb.io
   rules:
   - apiGroups:
-    - sts.example.com.example.com
+    - sts.example.com
     apiVersions:
     - v1alpha1
     operations:
@@ -37,13 +38,13 @@ webhooks:
   clientConfig:
     service:
       name: webhook-service
-      namespace: system
-      path: /validate-sts-example-com-example-com-v1alpha1-mystatefulset
+      namespace: {{ .Values.namespace }}
+      path: /validate-sts-example-com-v1alpha1-mystatefulset
   failurePolicy: Fail
   name: vmystatefulset.kb.io
   rules:
   - apiGroups:
-    - sts.example.com.example.com
+    - sts.example.com
     apiVersions:
     - v1alpha1
     operations:

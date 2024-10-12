@@ -24,6 +24,8 @@ import (
 var (
 	LABEL_MYSTS_CONTROLLER_KEY   = "controller-by"
 	LABEL_MYSTS_CONTROLLER_VALUE = "myStateFulSetController"
+
+	LABEL_INSTANCE_KEY = "mysts-instance-id"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!

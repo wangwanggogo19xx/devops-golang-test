@@ -173,6 +173,7 @@ func (r *MyStatefulSetReconciler) getExpectedStsLabels(mysts *stsv1alpha1.MyStat
 		myStateFulSetPodLabel = make(map[string]string)
 	}
 	myStateFulSetPodLabel[stsv1alpha1.LABEL_MYSTS_CONTROLLER_KEY] = stsv1alpha1.LABEL_MYSTS_CONTROLLER_VALUE
+	myStateFulSetPodLabel[stsv1alpha1.LABEL_INSTANCE_KEY] = mysts.Name
 
 	return myStateFulSetPodLabel
 }
